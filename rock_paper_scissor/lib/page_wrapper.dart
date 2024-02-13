@@ -33,10 +33,9 @@ class PageWrapper extends StatelessWidget {
         child: Stack(
           children: [
             ..._backgroundCircles,
-            Positioned.fill(
-              child: Center(
-                child: body,
-              ),
+            Container(
+              padding: EdgeInsets.all(50.r),
+              child: body,
             ),
           ],
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rock_paper_scissor/blur_container.dart';
 import 'package:rock_paper_scissor/page_wrapper.dart';
 
 void main() {
@@ -28,6 +29,24 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return PageWrapper(
       containerHeight: MediaQuery.of(context).size.height,
+      body: const BlurContainer(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Wrap(
+              alignment: WrapAlignment.center,
+              spacing: 20.0,
+              runSpacing: 20.0,
+              children: <Widget>[
+                ClickableImage(imagePath: 'assets/hands-up.png'),
+                ClickableImage(imagePath: 'assets/fist.png'),
+              ],
+            ),
+            SizedBox(height: 20),
+            ClickableImage(imagePath: 'assets/scissors.png'),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -84,11 +103,14 @@ class _ClickableImageState extends State<ClickableImage>
       },
       child: Transform.scale(
         scale: _animation.value,
-        child: Image.asset(
-          widget.imagePath,
-          width: 100,
-          height: 100,
-          fit: BoxFit.cover,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(15.0),
+          child: Image.asset(
+            widget.imagePath,
+            width: 150,
+            height: 150,
+            fit: BoxFit.fill,
+          ),
         ),
       ),
     );
