@@ -23,6 +23,13 @@ if (flutterVersionName == null) {
 }
 
 android {
+
+    externalNativeBuild {
+        cmake {
+            path "../../cpp/CMakeLists.txt"
+        }
+    }
+
     namespace "com.example.rock_paper_scissor"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion

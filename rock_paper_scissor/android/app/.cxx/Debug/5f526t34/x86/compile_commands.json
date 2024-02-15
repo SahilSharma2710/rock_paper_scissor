@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/sahilsharma/Desktop/rock_paper_scissor/rock_paper_scissor/android/app/.cxx/Debug/5f526t34/x86",
+  "command": "/Users/sahilsharma/Library/Android/sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=i686-none-linux-android19 --gcc-toolchain=/Users/sahilsharma/Library/Android/sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/sahilsharma/Library/Android/sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dffi_dart_library_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-limit-debug-info  -fPIC -o CMakeFiles/ffi_dart_library.dir/logic.cpp.o -c /Users/sahilsharma/Desktop/rock_paper_scissor/rock_paper_scissor/cpp/logic.cpp",
+  "file": "/Users/sahilsharma/Desktop/rock_paper_scissor/rock_paper_scissor/cpp/logic.cpp"
+}
+]

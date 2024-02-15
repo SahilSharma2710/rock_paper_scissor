@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rock_paper_scissor/blur_container.dart';
 import 'package:rock_paper_scissor/page_wrapper.dart';
+import 'package:rock_paper_scissor/result_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
         designSize: const Size(360, 690),
         builder: (_, child) {
           return MaterialApp(
+            debugShowCheckedModeBanner: false,
             title: 'Rock Paper Scissor',
             theme: ThemeData(
               primarySwatch: Colors.blue,
@@ -38,12 +40,21 @@ class MyHomePage extends StatelessWidget {
               spacing: 20.0,
               runSpacing: 20.0,
               children: <Widget>[
-                ClickableImage(imagePath: 'assets/hands-up.png'),
-                ClickableImage(imagePath: 'assets/fist.png'),
+                ClickableImage(
+                  imagePath: 'assets/hands-up.png',
+                  userMove: "p",
+                ),
+                ClickableImage(
+                  imagePath: 'assets/fist.png',
+                  userMove: "r",
+                ),
               ],
             ),
             SizedBox(height: 20),
-            ClickableImage(imagePath: 'assets/scissors.png'),
+            ClickableImage(
+              imagePath: 'assets/scissors.png',
+              userMove: "s",
+            ),
           ],
         ),
       ),
@@ -53,8 +64,11 @@ class MyHomePage extends StatelessWidget {
 
 class ClickableImage extends StatefulWidget {
   final String imagePath;
+  final String userMove;
 
-  const ClickableImage({Key? key, required this.imagePath}) : super(key: key);
+  const ClickableImage(
+      {Key? key, required this.imagePath, required this.userMove})
+      : super(key: key);
 
   @override
   _ClickableImageState createState() => _ClickableImageState();
@@ -97,6 +111,12 @@ class _ClickableImageState extends State<ClickableImage>
       },
       onTapUp: (_) {
         _controller.reverse();
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => ResultScreen(
+                      userMove: widget.userMove,
+                    )));
       },
       onTapCancel: () {
         _controller.reverse();
